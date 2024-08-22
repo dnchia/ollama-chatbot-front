@@ -1,0 +1,16 @@
+<main class="main">
+  <div class="content">
+    <h1>Test</h1>
+
+    <h2>Texto a preguntar</h2>
+    <input type="text" [(ngModel)]="prompt"/>
+    <button (click)="askQuestion()">Haz la pregunta</button>
+
+    <h2>Respuesta</h2>
+    <div *ngIf="!loading" style="white-space: pre; width: 60%;">
+      {{ responseString }}
+    </div>
+    <img *ngIf="loading" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
+  </div>
+</main>
+<router-outlet />
