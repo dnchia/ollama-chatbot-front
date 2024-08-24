@@ -1,13 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { ResponseBoxComponent } from './response-box/response-box.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, HttpClientModule, CommonModule],
+  imports: [RouterOutlet, FormsModule, ResponseBoxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,24 +16,17 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'ollama-interface';
 
-  prompt = '';
-  responseString = '';
-  loading = false;
+  prompt: string = '';
+  lastPrompt: string = '';
 
-  constructor(private http: HttpClient) {
-    this.http = http;
+  @ViewChild(ResponseBoxComponent, { static: false })
+  private responseBoxComponent: ResponseBoxComponent | undefined;
+
+  public emitPrompt(): void {
+    if (this.responseBoxComponent != null) {
+      this.responseBoxComponent.askQuestion(this.prompt);
+      this.lastPrompt = this.prompt;
+      this.prompt = '';
+    }
   }
-
-  askQuestion() {
-    this.loading = true;
-    this.http.get<OllamaResponse>('http://192.168.1.41:8000/test', { params: {prompt: "'" + this.prompt + "'"}})
-    .subscribe((response: any) => {
-      this.responseString = response.response;
-      this.loading = false;
-    });
-  }
-}
-
-interface OllamaResponse {
-  response: string;
 }

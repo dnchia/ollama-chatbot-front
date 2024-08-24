@@ -1,16 +1,19 @@
 <main class="main">
   <div class="content">
-    <h1>Test</h1>
+    <img src="../assets/ollama.png" class="ollama-img"/>
+    <h1>Chat Ollama</h1>
 
     <h2>Texto a preguntar</h2>
-    <input type="text" [(ngModel)]="prompt"/>
-    <button (click)="askQuestion()">Haz la pregunta</button>
+    <textarea [(ngModel)]="prompt" class="question-box"></textarea>
+    <button (click)="emitPrompt()" class="make-question-button">Haz la pregunta</button>
 
-    <h2>Respuesta</h2>
-    <div *ngIf="!loading" style="white-space: pre; width: 60%;">
-      {{ responseString }}
+    <h3>Pregunta</h3>
+    <div class="prompt-box">
+      <p>{{ lastPrompt }}</p>
     </div>
-    <img *ngIf="loading" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
+
+    <h3>Respuesta</h3>
+    <response-box/>
   </div>
 </main>
 <router-outlet />

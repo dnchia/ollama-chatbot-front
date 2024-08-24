@@ -1,0 +1,6 @@
+.response-box {
+    float: left;
+    border: 1px black;
+    max-width: 80vw;
+    white-space: break-spaces;
+}

@@ -1,0 +1,24 @@
+.ollama-img {
+    height: 150px;
+    width: 100px;
+}
+
+.content {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+}
+
+.make-question-button {
+    margin-top: 10px;
+    width: 35vw;
+}
+
+.question-box {
+    width: 80vw;
+    height: 10vh;
+}
+
+.prompt-box {
+    white-space: word-break;
+}
