@@ -13,7 +13,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class ResponseBoxComponent {
 
-  responseString = '';
+  responseString = 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest';
   loading = false;
   error = false;
 

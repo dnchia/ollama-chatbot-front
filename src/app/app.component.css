@@ -21,4 +21,30 @@
 
 .prompt-box {
     white-space: word-break;
+    margin-top: 4vh;
+    min-height: 4vh;
+}
+
+.title {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 9vh;
+}
+
+.prompt-header {
+    font-family: "Caveat Brush", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4vh;
+}
+
+.response-header {
+    font-family: "Caveat Brush", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4vh;
 }

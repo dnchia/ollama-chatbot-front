@@ -1,19 +1,18 @@
 <main class="main">
   <div class="content">
     <img src="../assets/ollama.png" class="ollama-img"/>
-    <h1>Chat Ollama</h1>
+    <div class="title">Chat Ollama</div>
 
-    <h2>Texto a preguntar</h2>
+    <div class="prompt-header">Escribe algo</div>
     <textarea [(ngModel)]="prompt" class="question-box"></textarea>
     <button (click)="emitPrompt()" class="make-question-button">Haz la pregunta</button>
 
-    <h3>Pregunta</h3>
     <div class="prompt-box">
-      <p>{{ lastPrompt }}</p>
+      <div>{{ lastPrompt }}</div>
     </div>
 
-    <h3>Respuesta</h3>
+    <div class="response-header">Respuesta</div>
     <response-box/>
   </div>
+  <!-- TODO: Add footer component-->
 </main>
-<router-outlet />
