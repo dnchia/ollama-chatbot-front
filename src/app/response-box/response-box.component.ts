@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'response-box',
@@ -13,7 +12,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class ResponseBoxComponent {
 
-  responseString = 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest';
+  responseString = '';
   loading = false;
   error = false;
 

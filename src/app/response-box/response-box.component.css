@@ -1,10 +1,11 @@
 .response-box {
     float: left;
     border: 1px solid black;
-    max-width: 90vw;
+    /*max-width: 90vw;
     min-width: 90vw;
-    min-height: 40vh;
+    min-height: 40vh;*/
     white-space: break-spaces;
     overflow-y: scroll;
     border-radius: 20px;
+    flex-grow: 1;
 }

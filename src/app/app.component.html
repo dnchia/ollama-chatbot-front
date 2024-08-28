@@ -1,18 +1,27 @@
 <main class="main">
   <div class="content">
-    <img src="../assets/ollama.png" class="ollama-img"/>
-    <div class="title">Chat Ollama</div>
-
-    <div class="prompt-header">Escribe algo</div>
-    <textarea [(ngModel)]="prompt" class="question-box"></textarea>
-    <button (click)="emitPrompt()" class="make-question-button">Haz la pregunta</button>
-
-    <div class="prompt-box">
-      <div>{{ lastPrompt }}</div>
+    <div style="margin-bottom: 5vh;">
+      <div class="circle-background"></div>
+      <div class="title-container">
+        <img [src]="darkTheme ? '../assets/ollama-dark.png' : '../assets/ollama.png'" class="ollama-img"/>
+        <div [class]="darkTheme ? 'title-dark' : 'title-light'">Chat Ollama</div>
+      </div>
     </div>
 
-    <div class="response-header">Respuesta</div>
     <response-box/>
+
+    <div style="padding-top: 4vh"></div> 
+
+    <div class="prompt-container">
+      <mat-form-field style="min-width: 75vw;">
+        <input *ngIf="!sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000" placeholder="Haz tu pregunta">
+        <input *ngIf="sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000">
+        <mat-hint align="end">{{prompt.length}} / 1000</mat-hint>
+      </mat-form-field>
+      <button (click)="emitPrompt()" class="prompt-button" mat-fab>
+        <mat-icon matSuffix>send</mat-icon>
+      </button>
+    </div>   
   </div>
   <!-- TODO: Add footer component-->
 </main>

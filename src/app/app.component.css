@@ -1,31 +1,38 @@
-.ollama-img {
-    height: 150px;
-    width: 100px;
-}
-
+/* All page */
 .content {
     display: grid;
     place-content: center;
     justify-items: center;
 }
 
-.make-question-button {
-    margin-top: 10px;
-    width: 35vw;
+/* Title */
+.ollama-img {
+    height: 150px;
+    width: 100px;
 }
 
-.question-box {
-    width: 80vw;
-    height: 10vh;
+.title-container {
+    display: grid;
+    place-content: center;
+    justify-items: center;
 }
 
-.prompt-box {
-    white-space: word-break;
-    margin-top: 4vh;
-    min-height: 4vh;
+.circle-background {
+    position: absolute;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: -1;
+    width: 250px; height: 145px;
+    border-radius: 50%;
+    background-color: white;
+    border: 5px solid black;
 }
 
-.title {
+.title-light {
     font-family: "Caveat", cursive;
     font-optical-sizing: auto;
     font-weight: 700;
@@ -33,18 +40,36 @@
     font-size: 9vh;
 }
 
-.prompt-header {
-    font-family: "Caveat Brush", cursive;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 4vh;
+/* Chat box */
+.question-box {
+    
 }
 
-.response-header {
-    font-family: "Caveat Brush", cursive;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 4vh;
+/* Prompt */
+.prompt-container {
+    place-content: center;
+    justify-items: center;
+    vertical-align: middle;
+}
+
+.prompt-button {
+    vertical-align: middle;
+    background-color: #d7e3ff;
+    color: white;
+    margin-left: 10px;
+    animation: anime 16s linear infinite;
+    background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
+    background-size: 600%;
+}
+
+@keyframes anime {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

@@ -1,1 +1,5 @@
 @import 'fonts/fonts.css';
+
+body .mdc-text-field--filled {
+  border-radius: 1em;
+}
