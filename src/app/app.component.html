@@ -1,16 +1,38 @@
 <main class="main">
   <div class="content">
-    <h1>Test</h1>
-
-    <h2>Texto a preguntar</h2>
-    <input type="text" [(ngModel)]="prompt"/>
-    <button (click)="askQuestion()">Haz la pregunta</button>
-
-    <h2>Respuesta</h2>
-    <div *ngIf="!loading" style="white-space: pre; width: 60%;">
-      {{ responseString }}
+    <div style="margin-bottom: 5vh;">
+      <div class="circle-background"></div>
+      <div class="title-container">
+        <img [src]="darkTheme ? '../assets/ollama-dark.png' : '../assets/ollama.png'" class="ollama-img"/>
+        <div [class]="darkTheme ? 'title-dark' : 'title-light'">Chat Ollama</div>
+      </div>
     </div>
-    <img *ngIf="loading" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
+
+    <!-- <div *ngIf="!loading && !error">
+      <p>{{ responseString }}</p>
+    </div>
+    <div>
+        <img *ngIf="loading && !error" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
+    </div>-->
+    <div *ngIf="error">
+        <p>Ha habido un error realizando la petición, el error obtenido es el siguiente:</p>
+        <p>{{ errorDetail }}</p>
+    </div>
+
+    <response-box *ngIf="isLoaded" [messages]="messages"/>
+
+    <div style="padding-top: 2vh"></div> 
+
+    <div class="prompt-container">
+      <mat-form-field (keyup.enter)="emitPrompt()" style="min-width: 75vw;">
+        <input *ngIf="!sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000" placeholder="Haz tu pregunta">
+        <input *ngIf="sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000">
+        <mat-hint align="end">{{prompt.length}} / 1000</mat-hint>
+      </mat-form-field>
+      <button (click)="emitPrompt()" class="prompt-button" mat-fab>
+        <mat-icon matSuffix>send</mat-icon>
+      </button>
+    </div>   
   </div>
+  <!-- TODO: Add footer component-->
 </main>
-<router-outlet />

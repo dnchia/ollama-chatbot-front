@@ -1,0 +1,10 @@
+{
+  "appId": "com.dnchia.app",
+  "appName": "ollama-chat",
+  "webDir": "dist/ollama-interface/browser",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
