@@ -1,45 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Component, Input } from '@angular/core';
+import { MessageBubbleComponent } from "../message-bubble/message-bubble.component";
 
 @Component({
   selector: 'response-box',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
+  imports: [CommonModule, MessageBubbleComponent],
   templateUrl: './response-box.component.html',
   styleUrl: './response-box.component.css'
 })
 export class ResponseBoxComponent {
+  @Input('messages')
+  messages!: Message[];
 
-  responseString = '';
-  loading = false;
-  error = false;
-
-  errorDetail = '';
-
-  constructor(private http: HttpClient) {
-    this.http = http;
+  ngOnInit() {
+    console.log(this.messages);
   }
 
-  public askQuestion(promptText: string) {
-    this.error = false;
-    this.errorDetail = '';
-    this.loading = true;
-    const requestObject: Observable<OllamaResponse> = this.http.get<OllamaResponse>('http://192.168.1.41:8000/test', { params: {prompt: "'" + promptText + "'"}});
-
-    requestObject.subscribe((response: OllamaResponse) => {
-      this.responseString = response.response;
-      this.loading = false;
-    }, 
-    (err: any) => {
-      this.loading = false;
-      this.error = true;
-      this.errorDetail = err.message;
-    });
+  ngOnChanges() {
+    console.log(this.messages);
   }
 }
 
-interface OllamaResponse {
-  response: string;
+export interface Message {
+  content: string;
+  userMessage: boolean;
 }
