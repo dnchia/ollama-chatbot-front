@@ -1,8 +1,7 @@
 {
-  "name": "ollama-interface",
-  "version": "0.0.0",
+  "name": "ollama-chatbot-front",
+  "version": "0.1.0-SNAPSHOT.1",
   "scripts": {
-    "ng": "ng",
     "serve:local": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
