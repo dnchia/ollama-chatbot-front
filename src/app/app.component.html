@@ -15,8 +15,7 @@
         <img *ngIf="loading && !error" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
     </div>-->
     <div *ngIf="error">
-        <p>Ha habido un error realizando la petición, el error obtenido es el siguiente:</p>
-        <p>{{ errorDetail }}</p>
+      <error-message [errorMessage]="errorDetail"/>
     </div>
 
     <response-box *ngIf="isLoaded" [messages]="messages"/>

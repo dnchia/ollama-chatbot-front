@@ -1,4 +1,4 @@
-import { Component, Injectable, ViewChild } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { ResponseBoxComponent } from './response-box/response-box.component';
@@ -10,21 +10,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Message } from '../app/response-box/response-box.component';
+import { ErrorMessageComponent } from "./error-message/error-message.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    FormsModule, 
-    ResponseBoxComponent, 
-    MatButtonModule, 
-    MatInputModule, 
-    MatFormFieldModule, 
-    CommonModule, 
-    MatIconModule, 
-    HttpClientModule
-  ],
+    RouterOutlet,
+    FormsModule,
+    ResponseBoxComponent,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    CommonModule,
+    MatIconModule,
+    HttpClientModule,
+    ErrorMessageComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
