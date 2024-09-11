@@ -18,7 +18,7 @@
       <error-message [errorMessage]="errorDetail"/>
     </div>
 
-    <response-box *ngIf="isLoaded" [messages]="messages"/>
+    <response-box *ngIf="isLoaded" [messages]="messages" [waiting]="loading"/>
 
     <div style="padding-top: 2vh"></div> 
 
