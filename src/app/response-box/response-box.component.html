@@ -2,4 +2,5 @@
     <ng-template ngFor let-item [ngForOf]="messages" let-i="index">
         <message-bubble [user-message]="messages[i].userMessage" [message]="messages[i].content"/>
     </ng-template>
+    <wait-feedback *ngIf="waiting" class="waitfeedback-spacing"></wait-feedback>
 </div>

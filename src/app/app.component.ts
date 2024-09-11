@@ -78,7 +78,6 @@ export class AppComponent {
   
       this.lastPrompt = this.prompt;
       this.prompt = '';
-      window.scrollTo(0, document.body.scrollHeight);
     }
   }
 
@@ -86,13 +85,13 @@ export class AppComponent {
     this.error = false;
     this.errorDetail = '';
     this.loading = true;
-    const requestObject: Observable<OllamaResponse> = this.http.get<OllamaResponse>('http://192.168.1.41:8000/test', { params: {prompt: "'" + promptText + "'"}});
+    const requestObject: Observable<OllamaResponse> = this.http.post<OllamaResponse>('http://192.168.1.41:8000/ollama-api/v1/chat/question', {text_content: "'" + promptText + "'"});
 
     requestObject.subscribe((response: OllamaResponse) => {
-      this.responseString = response.response;
+      this.responseString = response.data.content;
       this.loading = false;
       this.messages = [...this.messages, { userMessage: false, content: this.responseString}];
-      window.scrollTo(0, document.body.scrollHeight);
+      // window.scrollTo({ left: 0, top: 1e10, behavior: "smooth" });
     }, 
     (err: any) => {
       this.loading = false;
@@ -103,5 +102,16 @@ export class AppComponent {
 }
 
 interface OllamaResponse {
-  response: string;
+  info: OllamaResponseInfo;
+  data: OllamaResponseData;
+}
+
+interface OllamaResponseInfo {
+  success: boolean;
+  info: string;
+  status: number;
+}
+
+interface OllamaResponseData {
+  content: string;
 }
