@@ -1,4 +1,4 @@
-<div class="response-box">
+<div [class]="themeSelectionService.isLightTheme() ? 'response-box light' : 'response-box dark'">
     <ng-template ngFor let-item [ngForOf]="messages" let-i="index">
         <message-bubble [user-message]="messages[i].userMessage" [message]="messages[i].content"/>
     </ng-template>
