@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ThemeSelectionService } from '../theme-selection.service';
 
 @Component({
   selector: 'message-bubble',
@@ -14,4 +15,8 @@ export class MessageBubbleComponent {
 
   @Input('message')
   public message!: string;
+
+  constructor(public themeSelectionService: ThemeSelectionService) {
+    
+  }
 }

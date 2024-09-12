@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MessageBubbleComponent } from "../message-bubble/message-bubble.component";
 import { WaitFeedbackComponent } from "../wait-feedback/wait-feedback.component";
+import { ThemeSelectionService } from '../theme-selection.service';
 
 @Component({
   selector: 'response-box',
@@ -16,6 +17,10 @@ export class ResponseBoxComponent {
 
   @Input('waiting')
   waiting!: boolean;
+
+  constructor(public themeSelectionService: ThemeSelectionService) {
+    
+  }
 }
 
 export interface Message {

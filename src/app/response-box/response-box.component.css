@@ -1,16 +1,23 @@
 .response-box {
     float: left;
-    border: 1px solid black;
     max-width: 90vw;
     min-width: 90vw;
     min-height: calc(100vh - 207px - 7vh - 125px);
     white-space: break-spaces;
     border-radius: 20px;
-    border: solid 1px #EEE;
     display: flex;
     flex-direction: column;
     padding: 10px;
     padding-bottom: 15px;
+}
+
+.light {
+    border: solid 1px #EEE;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.dark {
+    border: solid 1px #EEE;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 

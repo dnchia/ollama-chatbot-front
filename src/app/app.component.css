@@ -1,14 +1,23 @@
 /* All page */
+
 .content {
     display: grid;
     place-content: center;
     justify-items: center;
 }
 
+.content-dark {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    background-color: #282a36;
+}
+
 /* Title */
 .ollama-img {
     height: 150px;
     width: 100px;
+    z-index: 2;
 }
 
 .title-container {
@@ -25,7 +34,7 @@
     left: 0;
     right: 0;
     text-align: center;
-    z-index: -1;
+    z-index: 1;
     width: 250px; 
     height: 145px;
     border-radius: 50%;
@@ -33,7 +42,17 @@
     border: 5px solid black;
 }
 
-.title-light {
+.circle-background-light {
+    background-color: white;
+    border: 5px solid black;
+}
+
+.circle-background-dark {
+    background-color: #282a36;
+    border: 5px solid white;
+}
+
+.title-text {
     font-family: "Caveat", cursive;
     font-optical-sizing: auto;
     font-weight: 700;
@@ -41,9 +60,12 @@
     font-size: 45px;
 }
 
-/* Chat box */
-.question-box {
-    
+.title-light {
+    color: black;
+}
+
+.title-dark {
+    color: white;
 }
 
 /* Prompt */
@@ -73,4 +95,18 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+.theme-switch {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.hint-light {
+    color: black;
+}
+
+.hint-dark {
+    color: white;
 }

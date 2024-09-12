@@ -1,35 +1,5 @@
-<!-- <div class="user messages">
-    <div class="message last">
-        Dude
-    </div>
-</div>
-  
-<div class="response messages">
-    <div class="message">
-        Hey!
-    </div>
-    
-    <div class="message">
-        You there?
-    </div>
-    
-    <div class="message last">
-        Hello, how's it going?
-    </div>
-</div>
-  
-<div class="user messages">
-    <div class="message">
-        Great thanks!
-    </div> 
-    
-    <div class="message last">
-        How about you?
-    </div>
-</div> -->
-
 <div [class]="userMessage ? 'user messages' : 'response messages'">
-    <div class="message last">
+    <div [class]="themeSelectionService.isLightTheme() ? 'message last light' : 'message last dark'">
         {{ message }}
     </div>
 </div>

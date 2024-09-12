@@ -1,19 +1,16 @@
 <main class="main">
-  <div class="content">
+  <div [class]="lightTheme ? 'content' : 'content-dark'">
+    <mat-slide-toggle #darkModeSwitch class="theme-switch" [checked]="lightTheme" [(ngModel)]="lightTheme" (change)="switchColor()"></mat-slide-toggle>
+    
     <div style="margin-bottom: 5vh;">
-      <div class="circle-background"></div>
+      <div [class]="lightTheme ? 'circle-background circle-background-light' : 'circle-background circle-background-dark'"></div>
+      
       <div class="title-container">
-        <img [src]="darkTheme ? '../assets/ollama-dark.png' : '../assets/ollama.png'" class="ollama-img"/>
-        <div [class]="darkTheme ? 'title-dark' : 'title-light'">Ollama Chatbot</div>
+        <img [src]="lightTheme ? '../assets/ollama.png' : '../assets/ollama-dark.png'" class="ollama-img"/>
+        <div [class]="lightTheme ? 'title-text title-light' : 'title-text title-dark'">Ollama Chatbot</div>
       </div>
     </div>
 
-    <!-- <div *ngIf="!loading && !error">
-      <p>{{ responseString }}</p>
-    </div>
-    <div>
-        <img *ngIf="loading && !error" width="100px" height="100px" src="https://i.gifer.com/ZKZg.gif"/>
-    </div>-->
     <div *ngIf="error">
       <error-message [errorMessage]="errorDetail"/>
     </div>
@@ -24,10 +21,10 @@
 
     <div class="prompt-container">
       <mat-form-field (keyup.enter)="emitPrompt()" style="min-width: 75vw;">
-        <input *ngIf="!sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000" placeholder="Haz tu pregunta">
-        <input *ngIf="sentAnyMessage" [(ngModel)]="prompt" matInput #message maxlength="1000">
-        <mat-hint align="end">{{prompt.length}} / 1000</mat-hint>
+        <input [(ngModel)]="prompt" matInput #message maxlength="1000">
+        <mat-hint align="end" [class]="lightTheme ? 'hint-light' : 'hint-dark'">{{prompt.length}} / 1000</mat-hint>
       </mat-form-field>
+      
       <button (click)="emitPrompt()" class="prompt-button" mat-fab>
         <mat-icon matSuffix>send</mat-icon>
       </button>
