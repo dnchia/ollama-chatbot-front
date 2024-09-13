@@ -1,7 +1,7 @@
 {
   "name": "ollama-chatbot-front",
   "version": "0.1.0-SNAPSHOT.1",
-  "license":"GPL-3.0-only",
+  "license": "GPL-3.0-only",
   "scripts": {
     "serve:locale": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.json",
     "build": "ng build",
@@ -24,6 +24,7 @@
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
+    "jspdf": "^2.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

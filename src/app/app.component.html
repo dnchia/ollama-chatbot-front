@@ -15,6 +15,10 @@
       <error-message [errorMessage]="errorDetail"/>
     </div>
 
+    <button mat-fab class="download-conversation-button" (click)="downloadChat()">
+      <mat-icon aria-hidden="false" aria-label="Download conversation" fontIcon="download"></mat-icon>
+    </button>
+
     <response-box *ngIf="isLoaded" [messages]="messages" [waiting]="loading"/>
 
     <div style="padding-top: 2vh"></div> 

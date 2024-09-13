@@ -110,3 +110,17 @@
 .hint-dark {
     color: white;
 }
+
+.download-conversation-button {
+    position: absolute;
+    vertical-align: middle;
+    background-color: #d7e3ff;
+    color: white;
+    margin-right: 10px;
+    background: linear-gradient(-45deg, #c8ff3d, #FF3D77, #056428, #3CF0C5);
+    background-size: 600%;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 35px;
+    right: 60px;
+}

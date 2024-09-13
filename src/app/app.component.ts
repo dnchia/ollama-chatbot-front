@@ -13,6 +13,7 @@ import { Message } from '../app/response-box/response-box.component';
 import { ErrorMessageComponent } from "./error-message/error-message.component";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeSelectionService } from './theme-selection.service';
+import { MessageDownloaderService } from './message-downloader.service';
 
 @Component({
   selector: 'app-root',
@@ -69,9 +70,11 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  constructor(private http: HttpClient, private elementRef: ElementRef, private themeSelectionService: ThemeSelectionService) {
-    this.http = http;
-
+  constructor(private http: HttpClient, 
+              private elementRef: ElementRef, 
+              private themeSelectionService: ThemeSelectionService, 
+              private messageDownloaderService: MessageDownloaderService) 
+  {
     const audio = new Audio();
     audio.src = "../assets/whatsapp.mp3";
     audio.load();
@@ -131,6 +134,10 @@ export class AppComponent implements AfterViewInit {
       this.error = true;
       this.errorDetail = err.message;
     });
+  }
+
+  public downloadChat() {
+    this.messageDownloaderService.generatePdfFromMessages(this.messages);
   }
 }
 
