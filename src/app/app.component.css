@@ -111,16 +111,23 @@
     color: white;
 }
 
+.download-conversation-button-container {
+    position: sticky;
+    display:flex;
+    justify-content: flex-end;
+    max-width: 100%;
+    min-width: 100%;
+}
+
 .download-conversation-button {
-    position: absolute;
+    position: sticky;
     vertical-align: middle;
     background-color: #d7e3ff;
     color: white;
-    margin-right: 10px;
     background: linear-gradient(-45deg, #c8ff3d, #FF3D77, #056428, #3CF0C5);
-    background-size: 600%;
+    background-size: 400%;
     margin-bottom: 10px;
-    height: 35px;
-    width: 35px;
-    right: 60px;
+    height: 30px;
+    width: 30px;
+    top: 200px;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Message } from './response-box/response-box.component';
-import jspdf, { AcroFormTextField } from 'jspdf';
+import jspdf from 'jspdf';
 
 @Injectable({
   providedIn: 'root'

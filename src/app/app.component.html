@@ -2,7 +2,7 @@
   <div [class]="lightTheme ? 'content' : 'content-dark'">
     <mat-slide-toggle #darkModeSwitch class="theme-switch" [checked]="lightTheme" [(ngModel)]="lightTheme" (change)="switchColor()"></mat-slide-toggle>
     
-    <div style="margin-bottom: 5vh;">
+    <div style="margin-bottom: 2vh;">
       <div [class]="lightTheme ? 'circle-background circle-background-light' : 'circle-background circle-background-dark'"></div>
       
       <div class="title-container">
@@ -15,9 +15,11 @@
       <error-message [errorMessage]="errorDetail"/>
     </div>
 
-    <button mat-fab class="download-conversation-button" (click)="downloadChat()">
-      <mat-icon aria-hidden="false" aria-label="Download conversation" fontIcon="download"></mat-icon>
-    </button>
+    <div class="download-conversation-button-container">
+      <button mat-fab class="download-conversation-button" (click)="downloadChat()">
+        <mat-icon aria-hidden="false" aria-label="Download conversation" fontIcon="download"></mat-icon>
+      </button>
+    </div>
 
     <response-box *ngIf="isLoaded" [messages]="messages" [waiting]="loading"/>
 
